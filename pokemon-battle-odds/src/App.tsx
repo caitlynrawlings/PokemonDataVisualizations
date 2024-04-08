@@ -26,6 +26,8 @@ import Search from "./pages/Search/Search";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Graphing from "./pages/Graphing/Graphing";
 
+const path = "PokemonDataVisualizations/"
+
 // Adjusting the type of the MUI palette to
 // allow for custom colors
 declare module "@mui/material/styles" {
@@ -185,35 +187,35 @@ function App() {
             <Box sx={{ width: "100%", height: "64px" }} />
             <BodyContainer className={"BodyContainer"}>
               <Routes>
-                <Route path={"/24wi/final-project/Pokemon-Battle-Odds/"} element={<Home isDarkMode={darkModeOn}/>} />
-                <Route path={"/24wi/final-project/Pokemon-Battle-Odds/Graphing"} element={<Graphing />} />
+                <Route path={path} element={<Home isDarkMode={darkModeOn}/>} />
+                <Route path={path + "/Graphing"} element={<Graphing />} />
                 <Route
                   path={
-                    "/24wi/final-project/Pokemon-Battle-Odds/IndividualPokemon"
+                    path + "/IndividualPokemon"
                   } ///:filterName"}
                   element={<IndividualPokemon />}
                 />
                 <Route
-                  path={"/24wi/final-project/Pokemon-Battle-Odds/StatFilter"}
+                  path={path + "/StatFilter"}
                   element={<StatFilter />}
                 />
 
                 <Route
-                  path={"/24wi/final-project/Pokemon-Battle-Odds/Rationale"}
+                  path={path + "/Rationale"}
                   element={<Rationale />}
                 />
                 <Route
                   path={
-                    "/24wi/final-project/Pokemon-Battle-Odds/TheScaleInAllOfItsGlory"
+                    path + "/TheScaleInAllOfItsGlory"
                   }
                   element={<TheScaleInAllOfItsGlory />}
                 />
                 <Route
-                  path={"/24wi/final-project/Pokemon-Battle-Odds/Search"}
+                  path={path + "/Search"}
                   element={<Search />}
                 />
                 <Route
-                  path={"/24wi/final-project/Pokemon-Battle-Odds/TestPage"}
+                  path={path + "/TestPage"}
                   element={<TestPage />}
                 />
               </Routes>
