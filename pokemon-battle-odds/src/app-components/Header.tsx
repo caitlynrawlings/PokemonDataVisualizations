@@ -74,7 +74,7 @@ function Header(props: Props) {
                         alt={"UW Logo"}
                         src={LOGO}
                         onClick={() => {
-                            navigate("/24wi/final-project/Pokemon-Battle-Odds/");
+                            navigate("/PokemonDataVisualizations/");
                         }}
                     />
                 </Box>

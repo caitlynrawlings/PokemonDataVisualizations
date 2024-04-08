@@ -24,6 +24,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import ScatterPlotIcon from '@mui/icons-material/ScatterPlot';
 import ScaleIcon from '@mui/icons-material/Scale';
 
+const path = "PokemonDataVisualizations/"
+
 const openedMixin = (theme: Theme): CSSObject => ({
     width: DRAWER_WIDTH,
     transition: theme.transitions.create('width', {
@@ -74,27 +76,27 @@ function Sidebar(props: Props) {
     const sidebarRoutes: { name: string, icon: any, route: () => void }[] = [
         {
             name: "Home", icon: <HomeIcon/>, route: () => {
-                navigate("/24wi/final-project/Pokemon-Battle-Odds/");
+                navigate(path);
             }
         },
         {
             name: "Pokémon Graphing", icon: <ScatterPlotIcon/>, route: () => {
-                navigate("/24wi/final-project/Pokemon-Battle-Odds/Graphing");
+                navigate(path + "/Graphing");
             }
         },
         {
             name: "Pokémon Search", icon: <SearchIcon/>, route: () => {
-                navigate("/24wi/final-project/Pokemon-Battle-Odds/Search");
+                navigate(path + "/Search");
             }
         },
         {
             name: "Pokémon Scale", icon: <ScaleIcon/> , route: () => {
-                navigate("/24wi/final-project/Pokemon-Battle-Odds/TheScaleInAllOfItsGlory");
+                navigate(path + "/TheScaleInAllOfItsGlory");
             }
         },
         {
             name: "Rationale", icon: <InfoIcon/>, route: () => {
-                navigate("/24wi/final-project/Pokemon-Battle-Odds/Rationale");
+                navigate(path + "/Rationale");
             }
         },
         // {
