@@ -1,0 +1,105 @@
+/* DataSheet.css */
+
+/* Style for the main container */
+.data-container {
+  font-family: Arial, sans-serif;
+}
+
+/* Style for the header */
+.data-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Style for the main table */
+.data-container table {
+  border-collapse: collapse;
+}
+
+/* Style for table header */
+.data-container th {
+  background-color: #f2f2f2;
+  padding: 4px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Style for table cells */
+.data-container td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: center;
+  width: 100px;
+}
+
+/* Style for table rows */
+.data-container tr {
+  background-color: #f9f9f9;
+}
+
+.type-icons-container {
+  display: flex;
+  gap: 10px; /* Adjust the gap between the icons */
+  margin-top: 20px; /* Add margin to separate from the Pokemon image */
+  margin-left: 55px;
+}
+
+.type-icon {
+  width: 64px;
+  height: 24px;
+}
+
+.pokemon-image {
+  width: 250px;
+  height: 250px;
+}
+
+.tooltip {
+  position: absolute;
+  text-align: center;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  border-radius: 4px;
+  pointer-events: none;
+}
+
+.pokemon-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.data-sheet-container {
+  flex: 0 0 50%;
+  padding: 0 10px;
+}
+
+/* Style for the stat distribution container */
+.stat-distribution-container {
+  flex: 0 0 50%;
+  height: 70%;
+  padding: 10px; /* Add padding to the container */
+  border: 3px solid black; /* Add a solid black border with a thickness of 3px */
+  border-radius: 20px; /* Add a border radius of 20px */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+/* Style for the stat selection label */
+.stat-distribution-container label {
+  margin-right: 8px;
+  font-weight: bold; /* Make the label text bold */
+}
+
+/* Style for the stat selection dropdown */
+#stat-select {
+  width: 30%; /* Make the select element take up 100% width */
+  padding: 8px; /* Add padding to the select element */
+  margin-bottom: 10px; /* Add some space below the select element */
+  font-weight: bold; /* Make the label text bold */
+}
+
+label {
+  margin-right: 8px;
+}
+
+/* Add more CSS rules as needed for further styling */

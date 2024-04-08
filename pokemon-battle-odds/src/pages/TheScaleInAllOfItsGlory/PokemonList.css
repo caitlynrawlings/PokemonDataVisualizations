@@ -1,0 +1,51 @@
+.search-con {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 100%;
+    padding: 10px;
+    z-index: 2;
+}
+
+.weightInfo {
+    position: fixed;
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25%;
+    margin-left: 30%;
+    justify-content: space-evenly;
+    border-top: 1px solid #bebebe;
+    justify-content: center;
+    padding: 1%;
+}
+
+
+.weightInfo h4 {
+    color: black;
+}
+
+.weightInfo label {
+    color: black;
+}
+
+.image-placeholder {
+    height: 30px;
+    width: 30px;
+}
+
+input[type="number"] {
+    width: 60px; /* Set the desired width */
+    padding: 8px; /* Add padding for better visual appearance */
+    border: 1px solid #ccc; /* Add a border for better visibility */
+    border-radius: 4px; /* Round the corners */
+    outline: none; /* Remove the default focus outline */
+    transition: border-color 0.3s; /* Add a smooth transition for border color */
+  
+    /* Optional: Add more styles as needed */
+  }
+  
+  input[type="number"]:hover,
+  input[type="number"]:focus {
+    border-color: #007bff; /* Change border color on hover/focus */
+  }

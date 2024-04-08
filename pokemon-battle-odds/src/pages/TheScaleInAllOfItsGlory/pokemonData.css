@@ -1,0 +1,20 @@
+.side-selector button {
+    background-color: #156791; /* Green background color */
+    height: 30px;
+    width: 50px;
+    color: white; /* White text color */
+    border: none; /* Remove border */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px; /* Add rounded corners */
+    transition: background-color 0.3s; /* Add a smooth transition on hover */
+  }
+  
+  .side-selector button:hover {
+    background-color: #2b4c82; /* Darker green on hover */
+  }

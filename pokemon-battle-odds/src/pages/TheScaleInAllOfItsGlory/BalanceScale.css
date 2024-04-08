@@ -1,0 +1,105 @@
+.balance-scale-container {
+  display: flex;
+  flex-direction: column;
+  bottom: 0px;
+  align-items: center; /* Center horizontally */
+}
+
+.balance-scale {
+    position: relative;
+    width: 300px;
+    height: 300px;
+  }
+  
+  .weights {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+  }
+  
+  .balance-arm {
+    position: relative;
+    width: 20px;
+    background-color: #ccc;
+  }
+  
+  .left {
+    margin-right: 20px;
+  }
+  
+  .right {
+    margin-left: 20px;
+  }
+  
+  .weight {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .tall-thick-rect {
+    width: 10px;
+    height: 91px;
+    position: absolute;
+    left: 145px;
+    bottom: 10px;
+  }
+
+  .tall-thin-rect {
+    width: 6px;
+    height: 91px;
+    position: absolute;
+    left: 147px;
+    bottom: 100px;
+  }
+
+  .long-rectangle {
+    width: 100px;
+    height: 11px;
+    position: absolute;
+    left: 100px;
+    bottom: 0px;
+  }
+
+  .short-rectangle {
+    width: 50px;
+    height: 11px;
+    position: absolute;
+    left: 125px;
+    bottom: 10px;
+  }
+
+  .tilting-line {
+    z-index: 1;
+    position: absolute;
+    left: 25px;
+    width: 250px;
+    bottom: 170px;
+    height: 6px;
+    transform-origin: center;
+  }
+
+  .semicircle {
+    z-index: 1;
+    width: 50px;
+    height: 25px; /* Set the height to half of the width */
+    border-radius: 0 0 100px 100px; /* The last two values (100px) set the vertical radius */
+    position: absolute;
+  }
+
+  .pokeball-container {
+    z-index: 0;
+    position: absolute;
+    transform-origin: center bottom;
+  }
+
+  .diagonal-line {
+    z-index: 1;
+    position: absolute;
+    width: 2px;
+  }
