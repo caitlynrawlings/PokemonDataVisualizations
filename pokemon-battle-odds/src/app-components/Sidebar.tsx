@@ -24,7 +24,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import ScatterPlotIcon from '@mui/icons-material/ScatterPlot';
 import ScaleIcon from '@mui/icons-material/Scale';
 
-const path = "PokemonDataVisualizations/"
+const path = "/PokemonDataVisualizations/"
 
 const openedMixin = (theme: Theme): CSSObject => ({
     width: DRAWER_WIDTH,

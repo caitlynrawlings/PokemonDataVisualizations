@@ -17,7 +17,7 @@ const IndividualPokemon = () => {
   const navigateToStatFilter = (filteredDataset, statName, start, end) => {
     console.log(filteredDataset);
 
-    navigate("/24wi/final-project/Pokemon-Battle-Odds/StatFilter", {
+    navigate(process.env.PUBLIC_URL + "/StatFilter", {
       state: {
         filteredData: filteredDataset,
         statName: statName,

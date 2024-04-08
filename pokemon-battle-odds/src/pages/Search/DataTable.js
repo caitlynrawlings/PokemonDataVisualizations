@@ -29,7 +29,7 @@ const DataTable = ({ filteredData: pokemon }) => {
             <tr key={index}>
               <td>
                 <Link
-                  to={`/24wi/final-project/Pokemon-Battle-Odds/IndividualPokemon?filterName=${encodeURIComponent(
+                  to={process.env.PUBLIC_URL + `/IndividualPokemon?filterName=${encodeURIComponent(
                     pokemon[30]
                   )}`}
                 >

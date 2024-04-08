@@ -26,7 +26,7 @@ import Search from "./pages/Search/Search";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Graphing from "./pages/Graphing/Graphing";
 
-const path = "PokemonDataVisualizations/"
+const path = "/PokemonDataVisualizations/"
 
 // Adjusting the type of the MUI palette to
 // allow for custom colors
