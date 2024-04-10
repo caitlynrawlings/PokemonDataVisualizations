@@ -4,6 +4,7 @@ import {styled} from "@mui/material/styles";
 import './PokemonList.css'; // Import the CSS file for styling
 import SearchButton from '../../shared-components/SearchButton.js';
 import PokemonDataGetter from './PokemonDataGetter.js';
+import Papa from "papaparse";
 
 const PokemonList = ({ leftWeightSetter, rightWeightSetter, leftHeightSetter, rightHeightSetter, leftNumSetter, rightNumSetter, leftImageSetter, rightImageSetter, style }) => {
   const [leftPokemon, setLeftPokemon] = useState('');
@@ -19,6 +20,30 @@ const PokemonList = ({ leftWeightSetter, rightWeightSetter, leftHeightSetter, ri
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResult, setSearchResult] = useState([]);
   const [searchPerformed, setSearchPerformed] = useState(false);
+
+  const [descriptions, setDescriptions] = useState({});
+
+  useEffect(() => {
+    const fetchDescriptions = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + "/pokemon_descriptions.csv");
+        const csvData = await response.text();
+        const parsedData = Papa.parse(csvData, { header: true });
+        const descriptionsMap = {};
+        parsedData.data.forEach((row) => {
+          descriptionsMap[row.Name] = row.Description;
+        });
+        setDescriptions(descriptionsMap);
+      } catch (error) {
+        console.error("Error fetching descriptions:", error);
+      }
+    };
+    fetchDescriptions();
+  }, []);
+
+  const getAltText = (pokemonName) => {
+    return descriptions[pokemonName] || "No description available";
+  };
   
 
   const addLeftPokemon = (pokemon) => {
@@ -103,7 +128,7 @@ const PokemonList = ({ leftWeightSetter, rightWeightSetter, leftHeightSetter, ri
         <div className='weightInfo'>
             <WeightInfoContainer>
                   <h4>On the left: {leftPokemon}</h4>
-                  {leftImage !== null ? <img src={leftImage} alt={leftPokemon} style={{ height: '40px' }} /> : <div className='image-placeholder'/>}
+                  {leftImage !== null ? <img src={leftImage} alt={getAltText(leftPokemon)} style={{ height: '40px' }} /> : <div className='image-placeholder'/>}
                   <label>
                   &nbsp;x&nbsp;
                   <input type="number" value={numLeft} onChange={handleNumLeftChange} style={{ width: '60px' }} />
@@ -115,7 +140,7 @@ const PokemonList = ({ leftWeightSetter, rightWeightSetter, leftHeightSetter, ri
 
                 <WeightInfoContainer>
                     <h4>On the right: {rightPokemon}</h4>
-                        {rightImage !== null ? <img src={rightImage} alt={rightPokemon} style={{ height: '40px' }} /> : <div className='image-placeholder'/>}
+                        {rightImage !== null ? <img src={rightImage} alt={getAltText(rightPokemon)} style={{ height: '40px' }} /> : <div className='image-placeholder'/>}
                         <label>
                             &nbsp;x&nbsp;
                         <input type="number" value={numRight} onChange={handleNumRightChange} style={{ width: '60px' }} />

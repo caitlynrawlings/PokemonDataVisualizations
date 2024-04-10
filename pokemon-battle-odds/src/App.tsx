@@ -191,12 +191,12 @@ function App() {
                 <Route path={path + "/Graphing"} element={<Graphing />} />
                 <Route
                   path={
-                    path + "/IndividualPokemon"
+                    "/PokemonDataVisualizations/IndividualPokemon"
                   } ///:filterName"}
                   element={<IndividualPokemon />}
                 />
                 <Route
-                  path={path + "/StatFilter"}
+                  path={"/PokemonDataVisualizations/StatFilter"}
                   element={<StatFilter />}
                 />
 

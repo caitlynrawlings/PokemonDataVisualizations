@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { readString } from "react-papaparse";
 import pokemonData from "../../data/pokemon_info.csv"; // weight in col[38]; height in col[27]
+import Papa from "papaparse";
 
 import './pokemonData.css'
 
@@ -11,6 +12,29 @@ import Box from "@mui/material/Box";
 const PokemonDataGetter = ({ name, onSearchResult, handleLeftAdd, handleRightAdd }) => {
   const [overallData, setOverallData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [descriptions, setDescriptions] = useState({});
+
+  useEffect(() => {
+    const fetchDescriptions = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + "/pokemon_descriptions.csv");
+        const csvData = await response.text();
+        const parsedData = Papa.parse(csvData, { header: true });
+        const descriptionsMap = {};
+        parsedData.data.forEach((row) => {
+          descriptionsMap[row.Name] = row.Description;
+        });
+        setDescriptions(descriptionsMap);
+      } catch (error) {
+        console.error("Error fetching descriptions:", error);
+      }
+    };
+    fetchDescriptions();
+  }, []);
+
+  const getAltText = (pokemonName) => {
+    return descriptions[pokemonName] || "No description available";
+  };
 
   const getImagePath = (pokemonName) => {
     return process.env.PUBLIC_URL + `/pokemon_images/${pokemonName}/0.jpg`;
@@ -79,7 +103,7 @@ const PokemonDataGetter = ({ name, onSearchResult, handleLeftAdd, handleRightAdd
     return filteredData.map((pokemonData, index) => (
       <Box key={index} sx={{ display: "flex", flexDirection: "row", margin: '5px' }}>
         <div style={{ backgroundColor: 'white', padding: '5px', borderRadius: '5px', height: '65px', marginTop: '10%', marginRight: '5%' }}>
-          <img src={getImagePath(pokemonData[30])} alt={pokemonData[30]} style={{ height: '55px' }} />
+          <img src={getImagePath(pokemonData[30])} alt={getAltText(pokemonData[30])} style={{ height: '55px' }} />
         </div>
         <div style={{ display: "flex", flexDirection: "column", marginTop: '10px'}}>
           <span style={{ marginTop: '15px' }}>{pokemonData[30]}</span>

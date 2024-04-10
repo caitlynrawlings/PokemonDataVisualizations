@@ -17,7 +17,7 @@ const IndividualPokemon = () => {
   const navigateToStatFilter = (filteredDataset, statName, start, end) => {
     console.log(filteredDataset);
 
-    navigate(process.env.PUBLIC_URL + "/StatFilter", {
+    navigate("/PokemonDataVisualizations/StatFilter", {
       state: {
         filteredData: filteredDataset,
         statName: statName,

@@ -97,8 +97,8 @@ const BalanceScale = ({ leftWeight, rightWeight, leftHeight, rightHeight, leftNu
           className='pokeball'
           style={{ bottom: `${calculatedBottom}px` }}
         >
-          {side === 'left' ? (leftImage !== null && <img src={pokeball} alt={"leftPokemon"} style={{ height: `${pokeballHeight}px` }} />) : <div></div>}
-          {side === 'right' ? (rightImage !== null && <img src={pokeball} alt={"rightPokemon"} style={{ height: `${pokeballHeight}px` }} />) : <div></div>}
+          {side === 'left' ? (leftImage !== null && <img src={pokeball} alt={"pokeball"} style={{ height: `${pokeballHeight}px` }} />) : <div></div>}
+          {side === 'right' ? (rightImage !== null && <img src={pokeball} alt={"pokeball"} style={{ height: `${pokeballHeight}px` }} />) : <div></div>}
         </div>
       );
     });

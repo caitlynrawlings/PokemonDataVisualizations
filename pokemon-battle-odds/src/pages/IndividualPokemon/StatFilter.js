@@ -46,7 +46,7 @@ const StatFilter = () => {
             <tr key={index}>
               <td>
                 <Link
-                  to={process.env.PUBLIC_URL + `/IndividualPokemon?filterName=${encodeURIComponent(
+                  to={`PokemonDataVisualizations/IndividualPokemon?filterName=${encodeURIComponent(
                     pokemon[30]
                   )}`}
                 >

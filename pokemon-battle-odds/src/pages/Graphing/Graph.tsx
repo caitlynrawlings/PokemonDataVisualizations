@@ -349,7 +349,7 @@ const Graph = (props : Props) => {
                             })
                             .on('click', function(event : any, d : any) {
                                 // @ts-ignore
-                                navigate(`/24wi/final-project/Pokemon-Battle-Odds/IndividualPokemon/?filterName=${encodeURIComponent(d.info[0])}`);
+                                navigate(process.env.PUBLIC_URL + `/IndividualPokemon/?filterName=${encodeURIComponent(d.info[0])}`);
                                 tooltip
                                     .style("visible", false)
                                     .style("z-index", "-1")

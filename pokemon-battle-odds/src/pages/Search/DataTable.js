@@ -1,6 +1,33 @@
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Papa from "papaparse";
 
 const DataTable = ({ filteredData: pokemon }) => {
+  const [descriptions, setDescriptions] = useState({});
+
+  useEffect(() => {
+    const fetchDescriptions = async () => {
+      try {
+        const response = await fetch(process.env.PUBLIC_URL + "/pokemon_descriptions.csv");
+        const csvData = await response.text();
+        const parsedData = Papa.parse(csvData, { header: true });
+        const descriptionsMap = {};
+        parsedData.data.forEach((row) => {
+          descriptionsMap[row.Name] = row.Description;
+        });
+        setDescriptions(descriptionsMap);
+      } catch (error) {
+        console.error("Error fetching descriptions:", error);
+      }
+    };
+    fetchDescriptions();
+  }, []);
+
+  const getAltText = (pokemonName) => {
+    return descriptions[pokemonName] || "No description available";
+  };
+
+
   const getImagePath = (pokemonName) => {
     return process.env.PUBLIC_URL + `/pokemon_images/${pokemonName}/0.jpg`;
   };
@@ -29,7 +56,7 @@ const DataTable = ({ filteredData: pokemon }) => {
             <tr key={index}>
               <td>
                 <Link
-                  to={process.env.PUBLIC_URL + `/IndividualPokemon?filterName=${encodeURIComponent(
+                  to={`/PokemonDataVisualizations/IndividualPokemon?filterName=${encodeURIComponent(
                     pokemon[30]
                   )}`}
                 >
@@ -39,7 +66,7 @@ const DataTable = ({ filteredData: pokemon }) => {
               <td>
                 <img
                   src={getImagePath(pokemon[30])}
-                  alt={pokemon[30]}
+                  alt={getAltText(pokemon[30])}
                   style={{ width: "50px", height: "50px" }}
                 />
               </td>
