@@ -24,7 +24,7 @@ const DataTable = ({ filteredData: pokemon }) => {
   }, []);
 
   const getAltText = (pokemonName) => {
-    return descriptions[pokemonName] || "No description available";
+    return descriptions[pokemonName] || `No of description of ${pokemonName} available`;
   };
 
 
@@ -37,24 +37,24 @@ const DataTable = ({ filteredData: pokemon }) => {
       <table className="data-container">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Image</th>
-            <th>Pokedex Number</th>
-            <th>Height (m)</th>
-            <th>Weight (kg)</th>
-            <th>HP</th>
-            <th>Attack</th>
-            <th>Defense</th>
-            <th>Special Attack</th>
-            <th>Special Defense</th>
-            <th>Speed</th>
-            <th>Base Total</th>
+            <th tabIndex={0} scope="col">Name</th>
+            <th tabIndex={0} scope="col">Image</th>
+            <th tabIndex={0} scope="col">Pokedex Number</th>
+            <th tabIndex={0} scope="col">Height (m)</th>
+            <th tabIndex={0} scope="col">Weight (kg)</th>
+            <th tabIndex={0} scope="col">HP</th>
+            <th tabIndex={0} scope="col">Attack</th>
+            <th tabIndex={0} scope="col">Defense</th>
+            <th tabIndex={0} scope="col">Special Attack</th>
+            <th tabIndex={0} scope="col">Special Defense</th>
+            <th tabIndex={0} scope="col">Speed</th>
+            <th tabIndex={0} scope="col">Base Total</th>
           </tr>
         </thead>
         <tbody>
           {pokemon.map((pokemon, index) => (
             <tr key={index}>
-              <td>
+              <td tabIndex={0}>
                 <Link
                   to={`/PokemonDataVisualizations/IndividualPokemon?filterName=${encodeURIComponent(
                     pokemon[30]
@@ -63,23 +63,25 @@ const DataTable = ({ filteredData: pokemon }) => {
                   {pokemon[30]}
                 </Link>
               </td>
-              <td>
+              <td aria-labelledby={`${pokemon[30]}-label`} tabIndex={0}>
+                <span id={`${pokemon[30]}-label`} style={{ display: "none" }}></span>
                 <img
+                  id={`${pokemon[30]}image`}
                   src={getImagePath(pokemon[30])}
                   alt={getAltText(pokemon[30])}
                   style={{ width: "50px", height: "50px" }}
                 />
               </td>
-              <td>{pokemon[32]}</td>
-              <td>{pokemon[27]}</td>
-              <td>{pokemon[38]}</td>
-              <td>{pokemon[28]}</td>
-              <td>{pokemon[19]}</td>
-              <td>{pokemon[25]}</td>
-              <td>{pokemon[33]}</td>
-              <td>{pokemon[34]}</td>
-              <td>{pokemon[35]}</td>
-              <td>{pokemon[22]}</td>
+              <td tabIndex={0}>{pokemon[32]}</td>
+              <td tabIndex={0}>{pokemon[27]}</td>
+              <td tabIndex={0}>{pokemon[38]}</td>
+              <td tabIndex={0}>{pokemon[28]}</td>
+              <td tabIndex={0}>{pokemon[19]}</td>
+              <td tabIndex={0}>{pokemon[25]}</td>
+              <td tabIndex={0}>{pokemon[33]}</td>
+              <td tabIndex={0}>{pokemon[34]}</td>
+              <td tabIndex={0}>{pokemon[35]}</td>
+              <td tabIndex={0}>{pokemon[22]}</td>
             </tr>
           ))}
         </tbody>
