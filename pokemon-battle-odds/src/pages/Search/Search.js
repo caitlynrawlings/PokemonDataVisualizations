@@ -26,7 +26,7 @@ const Search = () => {
         <Box>
             <Typography>
                 <div style={{ width: '50%', padding: '10px' }}>
-                    <SearchButton onSearchChange={handleSearchChange} onSearch={handleSearch} label={"Search"}/> {/* Passing callback functions */}
+                    <SearchButton onSearchChange={handleSearchChange} onSearch={handleSearch} label={"Search"}/>
                 </div>
                 <PokemonResults searchTerm={pokemonList}/>
             </Typography>

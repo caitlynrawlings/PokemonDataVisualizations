@@ -27,10 +27,10 @@ function SearchButton({ onSearchChange, onSearch, label }) {
           <input type="text" 
                  value={searchValue} 
                  onChange={handleChange} 
-                 onKeyPress={handleKeyPress}
+                 onKeyUp={handleKeyPress}
                  className="searchTerm" 
                  placeholder="Search for pokemon"/>
-          <button onClick={handleSearch} className="searchButton">
+          <button onClick={handleSearch} className="searchButton" aria-label='search'>
             <SearchIcon/>
         </button>
       </div>
