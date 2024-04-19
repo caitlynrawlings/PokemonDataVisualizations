@@ -95,7 +95,7 @@ const Graphing = () => {
 
     return (
         <GraphingContainer>
-            <Typography sx={{pb: "1vh"}} variant={"h3"}>Pokémon Generational Strength</Typography>
+            <Typography tabIndex={0} sx={{pb: "1vh"}} fontSize="50px" variant={"h1"}>Pokémon Generational Strength</Typography>
             {/* <Typography sx={{pb: "1vh"}} variant={"subtitle1"}>
                 Data points on the graphs below are individual pokemon
                 from generations 1-7 that are laid out to show different
@@ -112,7 +112,7 @@ const Graphing = () => {
                 <CustomButton onClick={resetGraphs}>Reset Graphs</CustomButton>
                 <CustomButton onClick={addWindow}>Add Graph</CustomButton>
             </ButtonContainer>
-            <Divider sx={{width: "100%", alignSelf: "center", marginBottom: "10px"}}/>
+            <Divider aria-hidden="true" sx={{width: "100%", alignSelf: "center", marginBottom: "10px"}}/>
             <GraphContainer>
                 {
                     graphWindows.map((value) => {

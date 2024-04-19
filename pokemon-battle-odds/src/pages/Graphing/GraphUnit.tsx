@@ -175,6 +175,38 @@ const GraphUnit = (props : Props) => {
         setGenerationSliderValue(newValue as number[]);
     };
 
+    const handleSliderKeyUp = (event: React.KeyboardEvent<HTMLDivElement>) => {
+        const { key } = event;
+        const focusedElement = document.activeElement;
+        if (!focusedElement) {
+            return;
+        }
+    
+        const sliderValues = generationSliderValue.slice();
+    
+        if (key === 'ArrowLeft' || key === 'ArrowRight') {
+            const isLeftThumbFocused = generationSliderValue[0] === Number(focusedElement.getAttribute('aria-valuenow'));
+            const isRightThumbFocused = generationSliderValue[1] === Number(focusedElement.getAttribute('aria-valuenow'));
+    
+            if (isLeftThumbFocused) {
+                if (key === 'ArrowRight' && sliderValues[0] < 7) {
+                    sliderValues[0] += 1;
+                } else if (key === 'ArrowLeft' && sliderValues[0] > 1) {
+                    sliderValues[0] -= 1;
+                }
+            } else if (isRightThumbFocused) {
+                if (key === 'ArrowRight' && sliderValues[1] < 7) {
+                    sliderValues[1] += 1;
+                } else if (key === 'ArrowLeft' && sliderValues[1] > 1) {
+                    sliderValues[1] -= 1;
+                }
+            }
+    
+            setGenerationSliderValue(sliderValues);
+        }
+    };    
+    
+
     const handlePrimaryTraitChange = (event: any) => {
         const {
             target: { value },
@@ -234,7 +266,8 @@ const GraphUnit = (props : Props) => {
 
     return (
         <GraphUnitContainer>
-            <Fab
+                <Fab
+                aria-label={'Delete graph'}
                 size={"small"}
                 sx={{
                     position: "absolute",
@@ -245,18 +278,23 @@ const GraphUnit = (props : Props) => {
                 onClick={()=>{
                     props.closeWindow(props.windowNum);
                 }}
-            >
+            >   
                 X
             </Fab>
+            
             <Controls>
                 {/*Slider*/}
                 <SliderBoxBox>
-                    <Typography>
+                    <Typography tabIndex={0}>
                         Generation Selector
                     </Typography>
                     <Slider
+                        role="slider"
+                        aria-valuemin={generationSliderValue[0]}
+                        aria-valuemax={generationSliderValue[1]}
                         value={generationSliderValue}
                         onChange={handleGenerationSliderChange}
+                        onKeyUp={handleSliderKeyUp}
                         valueLabelDisplay="auto"
                         marks={d3.range(7).map((val : number)=>{
                             return {value : val + 1, label : `${val + 1}`}

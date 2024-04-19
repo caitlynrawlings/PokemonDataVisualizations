@@ -53,7 +53,7 @@ const Home = (props : Props) => {
 
     return (
         <HomeContainer>
-            <Typography tabIndex={0} sx={{pb: "1vh", textAlign: "center"}} variant={"h1"} fontSize="45px">Stat and Attribute Exploration Application </Typography>
+            <Typography tabIndex={0} sx={{pb: "1vh", textAlign: "center"}} variant={"h1"} fontSize="50px">Stat and Attribute Exploration Application </Typography>
             <Divider sx={{width: "100%"}} aria-hidden="true"/>
             <Box
                 tabIndex={0}
